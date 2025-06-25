@@ -1,0 +1,13 @@
+Options +MultiViews
+RewriteEngine On
+
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.html [QSA,L]
+<IfModule mod_headers.c>
+	Header always set Content-Security-Policy "upgrade-insecure-requests;"
+	# Header set Access-Control-Allow-Origin "*"
+</IfModule>
