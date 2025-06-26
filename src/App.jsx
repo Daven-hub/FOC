@@ -1,5 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import AboutPage from "./pages/about"
+import { Recrutment } from "./pages/recrutement/recrutment"
+import EventsPage from "./pages/Evenement"
+import DomainesPage from "./pages/Domaines"
 
 function App() {
 
@@ -8,8 +11,10 @@ function App() {
 
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<AboutPage />}>
-          </Route>
+          <Route path="/" element={<AboutPage />}/>
+          <Route path="/recru" element={<Recrutment />}/>
+           <Route path="/event" element={<EventsPage />}/>
+           <Route path="/domaine" element = {<DomainesPage/>}/>
         </Routes>
       </BrowserRouter>
     </>
