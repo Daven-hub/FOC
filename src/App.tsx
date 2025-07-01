@@ -17,7 +17,6 @@ const queryClient = new QueryClient();
 
 const AppContent = () => {
   const isLoading = usePageLoader();
-
   return (
     <>
       {isLoading && <Loader />}
