@@ -71,8 +71,12 @@ const EventRegistrationForm = ({
             </button>
 
             {success ? (
-              <div className="p-6 text-center">
-                <div className="text-green-500 text-5xl mb-4">✓</div>
+              <div className="p-8 text-center">
+                <div className="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-green-100 mb-6">
+                  <svg className="h-10 w-10 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
                 <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">
                   Inscription confirmée!
                 </h3>
@@ -81,7 +85,7 @@ const EventRegistrationForm = ({
                 </p>
                 <Button 
                   onClick={onClose} 
-                  className="w-full"
+                  className="w-full bg-blue-600 hover:bg-blue-700"
                   size="lg"
                 >
                   Fermer
@@ -92,12 +96,12 @@ const EventRegistrationForm = ({
                 <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">
                   Inscription à {event.title}
                 </h3>
-                <p className="text-gray-600 mb-4 md:mb-6">
-                  Remplissez ce formulaire pour vous inscrire à l'événement.
+                <p className="text-gray-600 mb-6">
+                  Veuillez remplir ce formulaire pour finaliser votre inscription.
                 </p>
 
-                <div className="space-y-3 md:space-y-4">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
+                <div className="space-y-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-1">
                         Prénom *
@@ -108,7 +112,6 @@ const EventRegistrationForm = ({
                         value={formData.firstName}
                         onChange={handleChange}
                         required
-                        className="text-sm md:text-base"
                       />
                     </div>
                     <div>
@@ -121,7 +124,6 @@ const EventRegistrationForm = ({
                         value={formData.lastName}
                         onChange={handleChange}
                         required
-                        className="text-sm md:text-base"
                       />
                     </div>
                   </div>
@@ -137,7 +139,6 @@ const EventRegistrationForm = ({
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="text-sm md:text-base"
                     />
                   </div>
 
@@ -152,7 +153,6 @@ const EventRegistrationForm = ({
                       value={formData.phone}
                       onChange={handleChange}
                       required
-                      className="text-sm md:text-base"
                     />
                   </div>
 
@@ -165,7 +165,6 @@ const EventRegistrationForm = ({
                       name="company"
                       value={formData.company}
                       onChange={handleChange}
-                      className="text-sm md:text-base"
                     />
                   </div>
 
@@ -178,7 +177,6 @@ const EventRegistrationForm = ({
                       name="position"
                       value={formData.position}
                       onChange={handleChange}
-                      className="text-sm md:text-base"
                     />
                   </div>
 
@@ -192,12 +190,11 @@ const EventRegistrationForm = ({
                       value={formData.comments}
                       onChange={handleChange}
                       rows={3}
-                      className="text-sm md:text-base"
                     />
                   </div>
                 </div>
 
-                <div className="mt-6 flex flex-col sm:flex-row justify-end gap-3">
+                <div className="mt-8 flex flex-col sm:flex-row justify-end gap-3">
                   <Button
                     type="button"
                     variant="outline"
@@ -210,7 +207,7 @@ const EventRegistrationForm = ({
                   <Button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full sm:w-auto  bg-destructive"
+                    className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700"
                   >
                     {isSubmitting ? (
                       <span className="flex items-center justify-center">
