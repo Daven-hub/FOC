@@ -29,14 +29,14 @@ const Header = () => {
     <motion.header 
       className={`fixed px-[6%] top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
-          ? 'bg-white/95 backdrop-blur-xl shadow-lg border-b border-gray-100' 
+          ? 'bg-white/95 backdrop-blur-xl border-b border-gray-500' 
           : 'bg-transparent'
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6 }}
     >
-      <div className="mx-auto lg:px-8">
+      <div className="">
         <div className="flex items-center justify-between py-4">
           <motion.div 
             className="flex items-center space-x-3"
@@ -51,7 +51,7 @@ const Header = () => {
               <motion.a
                 key={item.name}
                 href={item.href}
-                className={`relative font-medium transition-colors duration-300 hover:text-foc-red ${
+                className={`relative text-[.9rem] font-medium transition-colors duration-300 hover:text-foc-red-light ${
                   isScrolled ? 'text-gray-700' : 'text-white'
                 } group`}
                 initial={{ opacity: 0, y: -10 }}
@@ -73,7 +73,7 @@ const Header = () => {
             <Button 
               className="bg-gradient-to-r from-foc-red to-foc-red-light hover:from-foc-red-dark hover:to-foc-red text-white px-6 py-2 rounded-full font-semibold shadow-lg shadow-foc-red/25 border-0 transform hover:scale-105 transition-all duration-300"
             >
-              S'inscrire
+              Nous Joindre
               <ArrowRight className="ml-2" size={16} />
             </Button>
           </motion.div>
