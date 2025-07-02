@@ -96,8 +96,7 @@ const About = () => {
         </div>
       </section>
 
-      {/* Partners Section */}
-      <section className="py-16 bg-gray-50">
+      {/* <section className="py-16 bg-gray-50">
         <div className="mx-auto text-center" style={{ paddingLeft: '6%', paddingRight: '6%' }}>
           <h2 className="text-2xl font-semibold text-gray-800 mb-12">
             Collaboration Avec Plus de 100,000+ Entreprises Internationalement Reconnues
@@ -116,9 +115,8 @@ const About = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
-      {/* About Us Section */}
       <section className="py-20 bg-white">
         <div className="mx-auto" style={{ paddingLeft: '6%', paddingRight: '6%' }}>
           <div className="grid lg:grid-cols-2 gap-16 items-center">
