@@ -475,7 +475,7 @@ const About = () => {
                 </motion.p>
 
                 <motion.h2
-                  className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-foc-blue mb-5 sm:mb-8 leading-tight"
+                  className="text-2xl sm:text-2xl md:text-5xl lg:text-5xl font-bold text-foc-blue mb-5 sm:mb-8 leading-tight"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.5, type: "spring" }}
@@ -575,7 +575,7 @@ const About = () => {
                 MISSION
               </p>
               <motion.h2
-                className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-white mb-6 leading-tight"
+                className="text-2xl sm:text-2xl md:text-2xl lg:text-5xl font-bold text-white mb-6 leading-tight"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 transition={{ delay: 0.2, duration: 0.8 }}
@@ -678,7 +678,7 @@ const About = () => {
 
               <div>
                 <p className="text-xs sm:text-sm uppercase tracking-wide text-foc-blue mb-2 sm:mb-4">POURQUOI NOUS CHOISIR</p>
-                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-foc-blue mb-5 sm:mb-8 leading-tight">
+                <h2 className="text-2xl sm:text-2xl md:text-5xl lg:text-5xl font-bold text-foc-blue mb-5 sm:mb-8 leading-tight">
                   Nous Créons <span className="text-foc-red">Plus d'Emplois</span><br />
                   Que Toute Autre Agence
                 </h2>
@@ -714,7 +714,7 @@ const About = () => {
             {/* En-tête */}
             <div className="text-center mb-16">
               <p className="text-sm uppercase tracking-wider text-foc-blue mb-4">NOTRE ÉQUIPE</p>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-white mb-5 sm:mb-8 leading-tight">
+              <h2 className="text-2xl sm:text-2xl md:text-2xl lg:text-5xl font-bold text-white mb-5 sm:mb-8 leading-tight">
                 Rencontrez Nos <span className="text-foc-red">Experts</span>
               </h2>
               <p className="text-lg text-gray-300 max-w-3xl mx-auto mb-16 leading-relaxed">
