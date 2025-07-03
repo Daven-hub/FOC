@@ -38,7 +38,7 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
   }
 
   return (
-    <div className="relative">
+    <>
       {isLoading && (
         <Skeleton className={`absolute inset-0 ${className}`} />
       )}
@@ -52,7 +52,7 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
         width={width}
         height={height}
       />
-    </div>
+    </>
   );
 };
 

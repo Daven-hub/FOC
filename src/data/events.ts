@@ -9,8 +9,8 @@ export const events: Event[] = [
     longDescription: "Cet événement annuel rassemble les principales entreprises technologiques de la région. Vous pourrez assister à des présentations sur les dernières tendances, participer à des ateliers pratiques et rencontrer des recruteurs.",
     type: "Présentiel",
     status: "Ouvert",
-    image: "/images/tech-event.jpg",
-    img: "/images/tech-event-detail.jpg",
+    image: "/pmeEvent.png",
+    img: "/pmes.png",
     start: "2023-11-15T09:00:00",
     location: "Centre des congrès de Montréal",
     category: "Technologie",
@@ -34,7 +34,8 @@ export const events: Event[] = [
     description: "Apprenez les dernières stratégies de marketing digital pour booster votre entreprise en 2024.",
     type: "En ligne",
     status: "Ouvert",
-    image: "/images/marketing-event.jpg",
+    image: "/municipaleEvent.png",
+     img: "/municipales.png",
     start: "2023-11-20T14:00:00",
     objectives: [
       "Comprendre les nouvelles tendances SEO",
@@ -43,16 +44,5 @@ export const events: Event[] = [
     ],
     tags: ["Marketing", "Digital", "Réseaux sociaux"]
   },
-  {
-    id: 3,
-    title: "Conférence sur la diversité en entreprise",
-    subtitle: "Créer des environnements inclusifs",
-    description: "Échangez avec des experts sur les meilleures pratiques pour promouvoir la diversité et l'inclusion.",
-    type: "Hybride",
-    status: "Bientôt",
-    image: "/images/diversity-event.jpg",
-    start: "2023-12-05T10:00:00",
-    location: "Hôtel Bonaventure",
-    tags: ["RH", "Diversité", "Inclusion"]
-  }
+
 ];

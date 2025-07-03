@@ -108,7 +108,7 @@ const EventCard = ({ event, expanded, onToggleExpand, onRegister }: EventCardPro
                                 {/* Colonne de droite - CTA */}
                                 <div className="lg:w-48 flex flex-col gap-3">
                                     <Button
-                                        className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium"
+                                        className="w-full bg-foc-red hover:bg-foc-blue text-white font-medium"
                                         size="lg"
                                         onClick={onRegister}
                                     >

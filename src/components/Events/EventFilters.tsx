@@ -42,7 +42,7 @@ const EventFilters = ({
             size="sm"
             className={`whitespace-nowrap rounded-full ${
               activeFilter === filter.id 
-                ? 'bg-blue-600 hover:bg-blue-700 text-white' 
+                ? 'bg-foc-red hover:bg-foc-blue text-white' 
                 : 'text-gray-700 hover:bg-gray-100 border-gray-300'
             }`}
           >

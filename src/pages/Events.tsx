@@ -64,22 +64,32 @@ const EventsPage = () => {
       <Header />
       <EventHero />
 
+      {/* <div className="text-center mb-16">
+        <h2 className="text-4xl lg:text-5xl font-bold text-foc-blue mb-6">
+          Nos <span className="text-foc-red">Services</span> d'Excellence
+        </h2>
+        <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          Découvrez notre gamme complète de services conçus pour propulser votre succès
+          à l'international avec l'expertise de Franchise Opportunities Canada Inc.
+        </p>
+      </div> */}
+
       <main className="relative z-10">
         {/* Section de filtres */}
         <section className="bg-gray-50 py-12">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <AnimatedSection delay={0.2}>
-              <div className="max-w-7xl mx-auto">
+              <div className="">
                 <div className="flex flex-col lg:flex-row gap-6 items-start lg:items-end justify-between mb-8">
                   <div>
-                    <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
-                      Événements à venir
+                    <h2 className="text-4xl lg:text-5xl font-bold text-foc-blue mb-6">
+                      Événements<span className="text-foc-red"> à venir</span>
                     </h2>
-                    <p className="text-gray-600">
+                    <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
                       Découvrez nos prochains rendez-vous professionnels
                     </p>
                   </div>
-                  <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50">
+                  <Button variant="outline" className="border-foc-blue text-foc-blue hover:bg-blue-50">
                     <Calendar className="mr-2 h-4 w-4" />
                     Voir le calendrier
                   </Button>
@@ -101,10 +111,10 @@ const EventsPage = () => {
         <section className="py-16 bg-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <AnimatedSection delay={0.3}>
-              <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-4">
-                <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
+              <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-8">
+                <h2 className="text-4xl lg:text-5xl font-bold text-foc-blue mb-6">
                   {activeFilter === 'all' ? 'Tous nos événements' : filters.find(f => f.id === activeFilter)?.label}
-                  <span className="text-gray-500 ml-2 text-lg font-normal">
+                  <span className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
                     ({filteredEvents.length} {filteredEvents.length > 1 ? 'résultats' : 'résultat'})
                   </span>
                 </h2>
