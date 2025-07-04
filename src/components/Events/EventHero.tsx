@@ -1,86 +1,191 @@
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import OptimizedImage from '@/components/OptimizedImage';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, ArrowRightToLine } from 'lucide-react';
+import { useEffect, useState, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const EventHero = () => {
+    const [currentImage, setCurrentImage] = useState(0);
+    const ref = useRef(null);
+    const { scrollYProgress } = useScroll({
+        target: ref,
+        offset: ["start start", "end start"]
+    });
+    const navigate = useNavigate();
+    
+    const yBg = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
+    
+    const images = [
+        "/event.jpg",
+        "/affaire.jpg",
+        "/about.png",
+    ];
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentImage((prev) => (prev + 1) % images.length);
+        }, 5000);
+
+        return () => clearInterval(interval);
+    }, [images.length]);
+
     return (
-        <section className="relative h-[70vh] md:h-[75vh] overflow-hidden bg-gray-900">
-            {/* Image de fond */}
-            <div className="absolute inset-0">
-                <OptimizedImage
-                    src="/event.jpg"
-                    alt="Événements professionnels"
-                    className="w-full h-full object-cover opacity-85"
-                // sizes="100vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-r from-foc-blue/100 via-foc-blue/50 to-foc-blue/60" />
-                {/* <div className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-black/50" /> */}
-                <div className="absolute inset-0 bg-black/50" />
-            </div>
-
-            {/* Contenu compact */}
-            <div className="relative z-10 container h-full flex items-center px-6 md:px-8">
-                <motion.div
-                    className="w-full max-w-4xl pl-8 md:pl-12 py-12 relative border-l-2 border-foc-red"
-                    initial={{ opacity: 0, y: 40 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
-                >
-                    {/* Lignes décoratives plus courtes */}
-                    <div className='absolute top-0 left-0 w-[25%] bg-foc-red h-[1.5px]' />
-                    <div className='absolute bottom-0 left-0 w-[40%] bg-foc-red h-[1.5px]' />
-
-                    <div className="space-y-5">
-                        <motion.span
-                            className="text-xs md:text-sm flex items-center gap-2 text-white font-medium"
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ delay: 0.3 }}
-                        >
-                            <ArrowRightToLine size={14} /> SALONS PROFESSIONNELS
-                        </motion.span>
-
-                        <motion.h1
-                            className="text-3xl md:text-5xl lg:text-[3.5rem] leading-tight font-bold text-white"
-                            initial={{ opacity: 0, y: 15 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.4 }}
-                        >
-                            <span className="text-white">
-                                Événements Premium
-                            </span>
-                        </motion.h1>
-
-                        <motion.p
-                            className="text-sm md:text-base text-blue-100/85 max-w-xl"
-                            initial={{ opacity: 0, y: 10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.5 }}
-                        >
-                            Rencontrez les leaders d'industrie et développez votre réseau professionnel.
-                        </motion.p>
-
+        <section
+            ref={ref}
+            className="relative h-[100vh] min-h-[600px] overflow-hidden bg-foc-blue pt-16"
+            style={{ isolation: 'isolate' }}
+        >
+            <div className="absolute inset-0 w-full h-full">
+                {images.map((src, index) => (
+                    <motion.div
+                        key={src}
+                        className="absolute inset-0 w-full h-full"
+                        style={{ y: yBg, scale: 1.03 }}
+                        initial={{ opacity: 0 }}
+                        animate={{ 
+                            opacity: index === currentImage ? 1 : 0,
+                            scale: index === currentImage ? 1.03 : 1.05
+                        }}
+                        transition={{ duration: 1.2, ease: [0.4, 0, 0.2, 1] }}
+                    >
+                        <OptimizedImage
+                            src={src}
+                            alt={`Événement professionnel ${index + 1}`}
+                            className="w-full h-full object-cover object-left lg:object-center"
+                            // priority={index === currentImage}
+                        />
                         <motion.div
-                            className="pt-2"
+                            className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-l from-foc-blue/90 via-foc-blue/50 to-transparent"
                             initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ delay: 0.6 }}
-                        >
-                            <Button
-                                size="lg"
-                                className="group bg-foc-red hover:bg-foc-red text-white px-7 py-3 rounded-full text-base font-medium shadow-lg  transition-all"
-                            >
-                                Voir le calendrier
-                                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                            </Button>
-                        </motion.div>
-                    </div>
-                </motion.div>
+                            animate={{ opacity: index === currentImage ? 1 : 0 }}
+                            transition={{ delay: 0.4, duration: 1.2 }}
+                        />
+                    </motion.div>
+                ))}
             </div>
 
-            {/* Micro effet de vague subtil */}
-            <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-blue-400/5 to-transparent" />
+            <div className="relative z-10 container h-full flex items-center px-4 sm:px-6 md:px-8">
+                <div className="w-full lg:w-3/5">
+                    <motion.div
+                        className="w-full max-w-2xl relative bg-black/30 lg:bg-transparent p-6 lg:p-0 rounded-xl lg:rounded-none backdrop-blur-sm lg:backdrop-blur-none"
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, type: "spring", bounce: 0.2 }}
+                    >
+                        <div className="space-y-3 sm:space-y-4 md:space-y-6">
+                            <motion.span
+                                className="text-xs sm:text-sm md:text-base flex items-center gap-2 text-white font-medium"
+                                initial={{ opacity: 0, x: -15 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ delay: 0.2, type: "spring", stiffness: 100 }}
+                            >
+                                <motion.span
+                                    initial={{ rotate: -45, opacity: 0 }}
+                                    animate={{ rotate: 0, opacity: 1 }}
+                                    transition={{ delay: 0.3 }}
+                                >
+                                    <ArrowRightToLine size={16} />
+                                </motion.span>
+                                <motion.span transition={{ delay: 0.4 }}>
+                                    ÉVÉNEMENTS EXCLUSIFS
+                                </motion.span>
+                            </motion.span>
+
+                            <motion.h1
+                                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight font-bold text-white"
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ staggerChildren: 0.1 }}
+                            >
+                                <motion.span
+                                    className="inline-block"
+                                    initial={{ y: 20, opacity: 0 }}
+                                    animate={{ y: 0, opacity: 1 }}
+                                    transition={{ type: "spring", stiffness: 100 }}
+                                >
+                                    Découvrez nos{" "}
+                                </motion.span>
+                                <motion.span
+                                    className="inline-block text-white"
+                                    initial={{ y: 20, opacity: 0 }}
+                                    animate={{ y: 0, opacity: 1 }}
+                                    transition={{ delay: 0.2, type: "spring", stiffness: 100 }}
+                                >
+                                    Événements
+                                </motion.span>
+                            </motion.h1>
+
+                            <motion.div
+                                className="overflow-hidden"
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ delay: 0.5 }}
+                            >
+                                <motion.p
+                                    className="text-base sm:text-lg md:text-xl lg:text-2xl text-blue-100/85 max-w-2xl leading-relaxed"
+                                    initial={{ y: 30 }}
+                                    animate={{ y: 0 }}
+                                    transition={{ delay: 0.6, type: "spring", damping: 10 }}
+                                >
+                                    Rencontrez les leaders d'industrie et développez votre réseau professionnel 
+                                    lors de nos événements exclusifs.
+                                </motion.p>
+                            </motion.div>
+
+                            <motion.div
+                                className="pt-4 flex flex-col sm:flex-row gap-3 sm:gap-4"
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1, transition: { staggerChildren: 0.1 } }}
+                            >
+                                <motion.div
+                                    initial={{ y: 15, opacity: 0 }}
+                                    animate={{ y: 0, opacity: 1 }}
+                                    transition={{ type: "spring", stiffness: 100 }}
+                                    whileHover={{ scale: 1.02 }}
+                                >
+                                    <Button
+                                        size="lg"
+                                        onClick={() => navigate('/events')}
+                                        className="group bg-foc-red hover:bg-foc-red/90 text-white px-8 sm:px-10 py-4 sm:py-5 rounded-full text-lg sm:text-xl font-medium shadow-lg hover:shadow-xl transition-all"
+                                    >
+                                        <span className="flex items-center">
+                                            <motion.span
+                                                initial={{ x: 0 }}
+                                                whileHover={{ x: 3 }}
+                                                transition={{ type: "spring", stiffness: 300 }}
+                                            >
+                                                Voir les événements
+                                            </motion.span>
+                                            <motion.span
+                                                className="ml-2"
+                                                initial={{ x: 0 }}
+                                                whileHover={{ x: 5 }}
+                                                transition={{ type: "spring", stiffness: 300 }}
+                                            >
+                                                <ArrowRight className="h-5 w-5" />
+                                            </motion.span>
+                                        </span>
+                                    </Button>
+                                </motion.div>
+                            </motion.div>
+                        </div>
+                    </motion.div>
+                </div>
+            </div>
+
+            <div className="absolute bottom-6 left-0 right-0 flex justify-center gap-2 z-10">
+                {images.map((_, index) => (
+                    <motion.button
+                        key={index}
+                        onClick={() => setCurrentImage(index)}
+                        className={`h-1.5 rounded-full transition-all ${index === currentImage ? 'bg-foc-red w-6' : 'bg-white/50 w-3'}`}
+                        aria-label={`Aller à l'image ${index + 1}`}
+                        whileHover={{ scale: 1.2 }}
+                        transition={{ type: "spring", stiffness: 400 }}
+                    />
+                ))}
+            </div>
         </section>
     );
 };

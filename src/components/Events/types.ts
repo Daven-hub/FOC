@@ -1,58 +1,19 @@
-export interface EventDate {
-  day: string;
-  month: string;
-  year: string;
-}
-
-export interface Speaker {
-  name: string;
-  title: string;
-  image: string;
-}
-
-export interface ScheduleItem {
-  time: string;
-  activity: string;
-}
-
 export interface Event {
   id: number;
   title: string;
-  subtitle?: string;
+  subtitle: string;
   description: string;
   longDescription?: string;
-  type: string;
-  status: string;
+  start: string;
+  end?: string;
+  type: 'En ligne' | 'Présentiel';
+  location?: string;
   image: string;
   img?: string;
-  start: string;
-  location?: string;
-  category?: string;
-  restrictions?: string;
-  participants?: { employers: number; jobSeekers: number };
-  schedule?: ScheduleItem[];
-  speakers?: Speaker[];
-  link?: string;
+  status?: 'Ouvert' | 'Complet' | 'Terminé';
   tags?: string[];
-  objectives?: string[];
   process?: string[];
-  challenges?: string[];
-}
-
-export interface RegistrationFormData {
-  firstName: string;
-  lastName: string;
-  email: string;
-  phone: string;
-  company?: string;
-  position?: string;
-  eventId: number;
-  comments?: string;
-}
-
-export interface FilterOption {
-  id: string;
-  label: string;
+  objectives?: string[];
 }
 
 export interface MinimalEvent {
@@ -60,6 +21,21 @@ export interface MinimalEvent {
   title: string;
 }
 
+export interface RegistrationFormData {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  company: string;
+  position: string;
+  eventId: string;
+  comments: string;
+}
+
+export interface FilterOption {
+  id: string;
+  label: string;
+}
 
 export interface JobListing {
   id: number;
