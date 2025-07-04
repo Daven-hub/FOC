@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight, Calendar, MapPin, Clock } from 'lucide-react';
 import { Event, FilterOption, MinimalEvent, RegistrationFormData } from '@/components/Events/types';
 import EventHero from '@/components/Events/EventHero';
 import AnimatedSection from '@/components/Events/AnimatedSection';
@@ -22,10 +22,10 @@ const EventsPage = () => {
 
   const filters: FilterOption[] = [
     { id: 'all', label: 'Tous les événements' },
-    { id: 'online', label: 'Événements en ligne' },
-    { id: 'in-person', label: 'Événements présenciels' },
-    { id: 'hybrid', label: 'Événements hybrides' },
+    { id: 'online', label: 'En ligne' },
+    { id: 'in-person', label: 'Présentiel' },
     { id: 'upcoming', label: 'À venir' },
+    { id: 'past', label: 'Passés' },
   ];
 
   const filteredEvents = events.filter(event => {
@@ -37,8 +37,8 @@ const EventsPage = () => {
     let matchesFilter = true;
     if (activeFilter === 'online') matchesFilter = event.type === 'En ligne';
     if (activeFilter === 'in-person') matchesFilter = event.type === 'Présentiel';
-    if (activeFilter === 'hybrid') matchesFilter = event.type === 'Hybride';
-    if (activeFilter === 'upcoming') matchesFilter = event.status === 'Bientôt';
+    if (activeFilter === 'upcoming') matchesFilter = new Date(event.start || '') > new Date();
+    if (activeFilter === 'past') matchesFilter = new Date(event.start || '') < new Date();
 
     return matchesSearch && matchesFilter;
   });
@@ -60,24 +60,39 @@ const EventsPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 font-sans">
+    <div className="min-h-screen bg-white font-sans text-gray-900">
       <Header />
       <EventHero />
 
+      {/* <div className="text-center mb-16">
+        <h2 className="text-4xl lg:text-5xl font-bold text-foc-blue mb-6">
+          Nos <span className="text-foc-red">Services</span> d'Excellence
+        </h2>
+        <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          Découvrez notre gamme complète de services conçus pour propulser votre succès
+          à l'international avec l'expertise de Franchise Opportunities Canada Inc.
+        </p>
+      </div> */}
+
       <main className="relative z-10">
-        <section className="bg-white py-12 shadow-sm">
-          <div className="container mx-auto px-6">
+        {/* Section de filtres */}
+        <section className="bg-gray-50 py-12">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <AnimatedSection delay={0.2}>
-              <div className="max-w-6xl mx-auto">
+              <div className="">
                 <div className="flex flex-col lg:flex-row gap-6 items-start lg:items-end justify-between mb-8">
                   <div>
-                    <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
-                      Trouvez votre prochain événement
+                    <h2 className="text-4xl lg:text-5xl font-bold text-foc-blue mb-6">
+                      Événements<span className="text-foc-red"> à venir</span>
                     </h2>
-                    <p className="text-gray-600">
-                      Filtrez par type, date ou mot-clé pour trouver l'événement parfait
+                    <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                      Découvrez nos prochains rendez-vous professionnels
                     </p>
                   </div>
+                  <Button variant="outline" className="border-foc-blue text-foc-blue hover:bg-blue-50">
+                    <Calendar className="mr-2 h-4 w-4" />
+                    Voir le calendrier
+                  </Button>
                 </div>
 
                 <EventFilters
@@ -92,13 +107,14 @@ const EventsPage = () => {
           </div>
         </section>
 
-        <section className="py-16 bg-gray-50">
-          <div className="container mx-auto px-6">
+        {/* Liste des événements */}
+        <section className="py-16 bg-white">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <AnimatedSection delay={0.3}>
-              <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-4">
-                <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
-                  {activeFilter === 'all' ? 'Tous les événements' : filters.find(f => f.id === activeFilter)?.label}
-                  <span className="text-gray-500 ml-2 text-lg font-normal">
+              <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-8">
+                <h2 className="text-4xl lg:text-5xl font-bold text-foc-blue mb-6">
+                  {activeFilter === 'all' ? 'Tous nos événements' : filters.find(f => f.id === activeFilter)?.label}
+                  <span className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
                     ({filteredEvents.length} {filteredEvents.length > 1 ? 'résultats' : 'résultat'})
                   </span>
                 </h2>
