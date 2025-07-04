@@ -22,7 +22,7 @@ const Footer = () => {
               entreprises et créons des ponts vers le succès mondial.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="p-2 bg-foc-blue rounded-lg hover:bg-foc-blue-light transition-colors">
+              <a target='_blank' href="https://www.linkedin.com/company/franchise-opportunit%C3%A9s-canada-inc/" className="p-2 bg-foc-blue rounded-lg hover:bg-foc-blue-light transition-colors">
                 <Linkedin size={20} />
               </a>
               {/* <a href="#" className="p-2 bg-foc-red rounded-lg hover:bg-foc-red-light transition-colors">

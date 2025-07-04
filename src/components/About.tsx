@@ -43,8 +43,8 @@ const About = () => {
     },
     {
       icon: Users,
-      title: "Le Bon Poste Pour Vos Compétences",
-      description: "Trouvez le poste parfait qui correspond à vos compétences et aspirations professionnelles."
+      title: "Accès International",
+      description: "Découvrez des opportunités dans plus de 50 pays à travers le monde."
     }
   ];
 
