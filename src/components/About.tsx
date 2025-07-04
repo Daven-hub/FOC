@@ -40,6 +40,11 @@ const About = () => {
       icon: Users,
       title: "Le Bon Poste Pour Vos Compétences",
       description: "Trouvez le poste parfait qui correspond à vos compétences et aspirations professionnelles."
+    },
+    {
+      icon: Users,
+      title: "Le Bon Poste Pour Vos Compétences",
+      description: "Trouvez le poste parfait qui correspond à vos compétences et aspirations professionnelles."
     }
   ];
 
@@ -47,11 +52,11 @@ const About = () => {
     <section id="apropos" className="py-10 md:py-20 bg-white px-[6%]">
           <div className="grid lg:grid-cols-2 gap-14">
             <div className="relative">
-              <div className="grid grid-cols-2 w-full h-full gap-4">
+              <div className="grid grid-cols-2 w-full h-[350px] md:h-full gap-4">
                 <div className="h-full overflow-hidden rounded-2xl w-full relative">
                   <div className="relative h-full overflow-hidden rounded-2xl mt-12">
                     <OptimizedImage
-                      src="/uploads/banner.jpg"
+                      src="/uploads/contr.jpg"
                       alt="Team working"
                       className="absolute w-full h-full object-cover"
                       width={1000}
@@ -73,7 +78,7 @@ const About = () => {
                   </div>
                   <div className="overflow-hidden rounded-2xl">
                     <OptimizedImage
-                      src="/uploads/banner.jpg"
+                      src="/uploads/contr2.jpg"
                       alt="Professional meeting"
                       className="absolute w-full h-[calc(100%-136px)] overflow-hidden rounded-2xl object-cover"
                       width={300}

@@ -9,11 +9,11 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import { ArrowRightToLine } from 'lucide-react';
 // Import pour le carrousel
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Pagination, Navigation } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
+// import { Swiper, SwiperSlide } from 'swiper/react';
+// import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+// import 'swiper/css';
+// import 'swiper/css/pagination';
+// import 'swiper/css/navigation';
 
 const About = () => {
   const ref = useRef(null);

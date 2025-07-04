@@ -21,7 +21,7 @@ const Header = () => {
     { name: 'À propos', href: '/a-propos' },
     { name: 'Services', href: '#' },
     { name: 'Événements', href: '/evenements' },
-    { name: 'Recrutement', href: '/jobs' },
+    { name: 'Recrutement', href: '#' },
     { name: 'Contact', href: '#' }
   ];
 
@@ -29,7 +29,7 @@ const Header = () => {
     <motion.header 
       className={`fixed px-[6%] top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
-          ? 'bg-white/95 backdrop-blur-xl border-b border-gray-500' 
+          ? 'bg-white/95 backdrop-blur-xl border-b border-gray-300' 
           : 'bg-transparent border-0'
       }`}
       initial={{ y: -100 }}

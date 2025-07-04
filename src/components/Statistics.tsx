@@ -36,13 +36,13 @@ const Statistics = () => {
   return (
     <section className="py-20 px-[6%]">
       <div className="">
-        <div className="text-center mb-12">
-          <h2 className="text-2xl uppercase lg:text-[2.3rem] font-bold text-gray-700 mb-2">
-            Les Journées l'emploi en <span className="text-foc-red">chiffres</span> depuis 2013
+        <div className="text-center mb-8">
+          <h2 className="text-[1.3rem] leading-[1.3] uppercase lg:text-[1.9rem] font-bold text-gray-700">
+            Les Journées de l'emploi en <span className="text-foc-red">chiffres</span> depuis 2013
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
           {stats.map((stat, index) => (
             <div 
               key={index} 
