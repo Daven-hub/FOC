@@ -1,15 +1,16 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
-import { ChevronRight, Calendar, MapPin, Clock } from 'lucide-react';
-import { Event, FilterOption, MinimalEvent, RegistrationFormData } from '@/components/Events/types';
+import { ChevronRight, Calendar } from 'lucide-react';
 import EventHero from '@/components/Events/EventHero';
 import AnimatedSection from '@/components/Events/AnimatedSection';
 import EventFilters from '@/components/Events/EventFilters';
 import EventList from '@/components/Events/EventList';
 import EventRegistrationForm from '@/components/Events/EventRegistrationForm';
 import { events } from '@/data/events';
+import { Event, FilterOption, MinimalEvent, RegistrationFormData } from '@/components/Events/types';
 
 const EventsPage = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -19,6 +20,7 @@ const EventsPage = () => {
   const [isRegistrationOpen, setIsRegistrationOpen] = useState(false);
   const [registrationSuccess, setRegistrationSuccess] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const navigate = useNavigate();
 
   const filters: FilterOption[] = [
     { id: 'all', label: 'Tous les événements' },
@@ -37,19 +39,14 @@ const EventsPage = () => {
     let matchesFilter = true;
     if (activeFilter === 'online') matchesFilter = event.type === 'En ligne';
     if (activeFilter === 'in-person') matchesFilter = event.type === 'Présentiel';
-    if (activeFilter === 'upcoming') matchesFilter = new Date(event.start || '') > new Date();
-    if (activeFilter === 'past') matchesFilter = new Date(event.start || '') < new Date();
+    if (activeFilter === 'upcoming') matchesFilter = new Date(event.start) > new Date();
+    if (activeFilter === 'past') matchesFilter = new Date(event.start) < new Date();
 
     return matchesSearch && matchesFilter;
   });
 
   const handleRegister = (event: Event) => {
-    setSelectedEvent({
-      id: event.id,
-      title: event.title
-    });
-    setIsRegistrationOpen(true);
-    setRegistrationSuccess(false);
+    navigate(`/events/${event.id}/register`);
   };
 
   const handleSubmitRegistration = async (formData: RegistrationFormData) => {
@@ -64,32 +61,25 @@ const EventsPage = () => {
       <Header />
       <EventHero />
 
-      {/* <div className="text-center mb-16">
-        <h2 className="text-4xl lg:text-5xl font-bold text-foc-blue mb-6">
-          Nos <span className="text-foc-red">Services</span> d'Excellence
-        </h2>
-        <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-          Découvrez notre gamme complète de services conçus pour propulser votre succès
-          à l'international avec l'expertise de Franchise Opportunities Canada Inc.
-        </p>
-      </div> */}
-
       <main className="relative z-10">
-        {/* Section de filtres */}
         <section className="bg-gray-50 py-12">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <AnimatedSection delay={0.2}>
               <div className="">
                 <div className="flex flex-col lg:flex-row gap-6 items-start lg:items-end justify-between mb-8">
                   <div>
-                    <h2 className="text-4xl lg:text-5xl font-bold text-foc-blue mb-6">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foc-blue mb-5 sm:mb-8 leading-tight">
                       Événements<span className="text-foc-red"> à venir</span>
                     </h2>
-                    <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                    <p className="text-lg text-gray-600 max-w-3xl leading-relaxed">
                       Découvrez nos prochains rendez-vous professionnels
                     </p>
                   </div>
-                  <Button variant="outline" className="border-foc-blue text-foc-blue hover:bg-blue-50">
+                  <Button 
+                    variant="outline" 
+                    className="border-foc-blue text-foc-blue hover:bg-blue-50"
+                    onClick={() => navigate('/events/calendar')}
+                  >
                     <Calendar className="mr-2 h-4 w-4" />
                     Voir le calendrier
                   </Button>
@@ -107,18 +97,13 @@ const EventsPage = () => {
           </div>
         </section>
 
-        {/* Liste des événements */}
         <section className="py-16 bg-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <AnimatedSection delay={0.3}>
               <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-8">
-                <h2 className="text-4xl lg:text-5xl font-bold text-foc-blue mb-6">
-                  {activeFilter === 'all' ? 'Tous nos événements' : filters.find(f => f.id === activeFilter)?.label}
-                  <span className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                    ({filteredEvents.length} {filteredEvents.length > 1 ? 'résultats' : 'résultat'})
-                  </span>
+                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foc-blue leading-tight">
+                  Tous nos <span className='text-foc-red'>événements</span>
                 </h2>
-
                 <div className="flex items-center gap-2 text-sm text-gray-500">
                   <span>Trier par :</span>
                   <Button variant="ghost" className="text-gray-700 hover:bg-gray-100">
@@ -138,17 +123,6 @@ const EventsPage = () => {
           </div>
         </section>
       </main>
-
-      {selectedEvent && (
-        <EventRegistrationForm
-          event={selectedEvent}
-          isOpen={isRegistrationOpen}
-          onClose={() => setIsRegistrationOpen(false)}
-          onSubmit={handleSubmitRegistration}
-          isSubmitting={isSubmitting}
-          success={registrationSuccess}
-        />
-      )}
 
       <Footer />
     </div>

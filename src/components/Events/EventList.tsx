@@ -3,6 +3,7 @@ import { Search } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import EventCard from './EventCard';
 import { Event } from './types';
+import { useNavigate } from 'react-router-dom';
 
 interface EventListProps {
   events: Event[];
@@ -19,6 +20,8 @@ const EventList = ({
   onToggleExpand, 
   onRegister 
 }: EventListProps) => {
+  const navigate = useNavigate();
+
   return (
     <AnimatePresence>
       {events.length > 0 ? (
@@ -33,8 +36,8 @@ const EventList = ({
             >
               <EventCard
                 event={event}
-                expanded={expandedEvent === event.id}
-                onToggleExpand={() => onToggleExpand(event.id)}
+                // expanded={expandedEvent === event.id}
+                // onToggleExpand={() => onToggleExpand(event.id)}
                 onRegister={() => onRegister(event)}
               />
             </motion.div>
@@ -67,7 +70,13 @@ const EventList = ({
             <p className="text-gray-600 mb-6">
               Essayez de modifier vos critères de recherche ou consultez notre calendrier complet.
             </p>
-            <Button variant="outline" className="border-blue-600 text-blue-600">
+            <Button 
+              variant="outline" 
+              className="border-blue-600 text-blue-600"
+              onClick={() => {
+                navigate('/events');
+              }}
+            >
               Voir tous les événements
             </Button>
           </div>

@@ -1,29 +1,21 @@
-import { motion } from 'framer-motion';
-
-type TagColor = 'blue' | 'green' | 'red' | 'yellow' | 'purple' | 'gray';
+import { ReactNode } from 'react';
 
 interface EventTagProps {
-  children: React.ReactNode;
-  color?: TagColor;
+  children: ReactNode;
+  color: 'blue' | 'red' | 'green';
 }
 
-const colorClasses = {
-  blue: 'bg-blue-100 text-blue-800',
-  green: 'bg-green-100 text-green-800',
-  red: 'bg-red-100 text-red-800',
-  yellow: 'bg-yellow-100 text-yellow-800',
-  purple: 'bg-purple-100 text-purple-800',
-  gray: 'bg-gray-100 text-gray-800'
-};
+const EventTag = ({ children, color }: EventTagProps) => {
+  const colorClasses = {
+    blue: 'bg-foc-blue/10 text-foc-blue border-foc-blue/20',
+    red: 'bg-foc-red/10 text-foc-red border-foc-red/20',
+    green: 'bg-green-100 text-green-800 border-green-200'
+  };
 
-const EventTag = ({ children, color = 'blue' }: EventTagProps) => {
   return (
-    <motion.span
-      className={`text-xs font-medium px-2.5 py-0.5 rounded-full ${colorClasses[color]}`}
-      whileHover={{ scale: 1.05 }}
-    >
+    <span className={`text-xs font-medium px-2.5 py-0.5 rounded-full border ${colorClasses[color]}`}>
       {children}
-    </motion.span>
+    </span>
   );
 };
 
