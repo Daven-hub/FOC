@@ -10,9 +10,8 @@ import "slick-carousel/slick/slick-theme.css";
 const CustomArrow = ({ direction, onClick }: { direction: 'prev' | 'next', onClick?: () => void }) => (
   <button
     onClick={onClick}
-    className={`absolute top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white/20 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-all duration-300 ${
-      direction === 'prev' ? 'left-6' : 'right-6'
-    }`}
+    className={`absolute top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white/20 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-all duration-300 ${direction === 'prev' ? 'left-6' : 'right-6'
+      }`}
   >
     {direction === 'prev' ? <ChevronLeft size={24} /> : <ChevronRight size={24} />}
   </button>
@@ -30,7 +29,7 @@ const HeroCarousel = () => {
     },
     {
       title: "Placement Professionnel",
-      subtitle: "Solutions de placement personnalisées",
+      subtitle: "Accompagnement sur mesure",
       description: "Bénéficiez de solutions sur mesure pour répondre aux besoins spécifiques de votre secteur d'activité.",
       icon: <Briefcase className="w-16 h-16 text-foc-red" />,
       imageUrl: "/recrutement.jpg",
@@ -38,7 +37,7 @@ const HeroCarousel = () => {
     },
     {
       title: "Services Événementiels",
-      subtitle: "Évènements de recrutement et networking",
+      subtitle: "Évènements Pro & Carrière",
       description: "Participez à nos événements exclusifs pour maximiser vos opportunités de recrutement.",
       icon: <Calendar className="w-16 h-16 text-foc-red" />,
       imageUrl: "/event.jpg",
@@ -61,7 +60,7 @@ const HeroCarousel = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 5000,
+    autoplaySpeed: 7500,
     pauseOnHover: true,
     // prevArrow: <CustomArrow direction="prev" />,
     // nextArrow: <CustomArrow direction="next" />,
@@ -72,67 +71,57 @@ const HeroCarousel = () => {
   };
 
   return (
-    <section className="relative min-h-screen overflow-hidden hero-carousel-container">
+    <section className="relative overflow-hidden hero-carousel-container">
       <Slider {...settings}>
         {slides.map((slide, index) => (
-          <div key={index} className="relative min-h-screen">
-
-            <div className="absolute w-full aspect-video inset-0">
-              <img
+          <div key={index} className="relative flex flex-col justify-end items-center h-[500px] px-[6%] md:h-[calc(100vh+20px)]">
+            <div className="absolute w-full h-full aspect-video inset-0">
+              <img 
                 src={slide.imageUrl}
                 alt={slide.title}
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-foc-blue/100 via-foc-blue/50 to-foc-blue/60" />
-              {/* <div className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-black/50" /> */}
-              <div className="absolute inset-0 bg-black/50" />
+              <div className="absolute inset-0 bg-gradient-to-r from-foc-blue/100 via-foc-blue/65 md:via-foc-blue/85 to-black/40" />
+              {/* <div className="absolute inset-0 bg-gradient-to-r from-foc-blue/100 via-foc-blue/50 to-foc-blue/60" /> */}
+              <div className="absolute inset-0 bg-black/50 md:bg-black/30" />
             </div>
-
-            <div className="relative z-10 md:h-[calc(100vh+81px)] md:w-[76%] flex items-center" style={{ paddingLeft: '6%', paddingRight: '6%' }}>
-              <motion.div 
-                className="w-full space-y-5 pl-10 py-8 relative border-l-2 border-foc-red"
+             {/* <div className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-black/50" /> */}
+            <div className="w-full h-[500px] md:h-[calc(100vh+20px)] flex flex-col justify-center md:w-[70%]">
+              <motion.div
+                className="w-full space-y-4 pl-5 md:pl-10 py-6 md:py-10 relative border-l-[4px] border-foc-red"
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
-                <div className='absolute top-0 left-0 w-[30%] bg-foc-red h-[2px]' />
-                <div className='absolute bottom-0 left-0 w-[55%] bg-foc-red h-[2px]' />
-                <motion.span style ={{margin:0}}
-                  className="text-sm flex items-center gap-2 text-white drop-shadow-2xl"
-                  // initial={{ opacity: 0, y: 30 }}
-                  // animate={{ opacity: 1, y: 0 }}
-                  // transition={{ duration: 0.8, delay: 0.6 }}
+                <div className='absolute top-0 left-0 w-[17%] bg-gradient-to-r from-foc-red/90 via-foc-red-light/35 to-foc-blue/20 h-[4px]' />
+                <div className='absolute bottom-0 left-0 w-[65%] h-[4px] bg-gradient-to-r from-foc-red/90 via-foc-red-light/35 to-foc-blue/20' />
+                <motion.span style={{ margin: 0 }}
+                  className="text-[.8rem] flex items-center gap-2 text-white drop-shadow-2xl"
+                // initial={{ opacity: 0, y: 30 }}
+                // animate={{ opacity: 1, y: 0 }}
+                // transition={{ duration: 0.8, delay: 0.6 }}
                 >
-                 <ArrowRightToLine /> {slide.title}
+                  <ArrowRightToLine size={20}/> {slide.title}
                 </motion.span>
-     
-                <motion.h2 
-                  className="text-xl md:text-[6rem] leading-[1] m-0 font-semibold text-white drop-shadow-lg"
+
+                <motion.h2
+                  className="text-[1.6rem] md:text-[4.2rem] font-poppins uppercase leading-[1.3] m-0 font-bold text-white drop-shadow-md"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.8 }}
                 >
                   {slide.subtitle}
                 </motion.h2>
-    
-                <motion.p 
-                  className="text-sm text-white/95 leading-relaxed drop-shadow-lg"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 1 }}
-                >
-                  {slide.description}
-                </motion.p>
-       
+
                 <motion.div
-                className='mt-5'
+                  className='mt-5'
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 1.2 }}
                 >
-                  <Button 
-                    size="lg" 
-                    className="group bg-gradient-to-r from-foc-red to-foc-red-light hover:from-foc-red-dark hover:to-foc-red text-white px-8 py-4 rounded-full text-lg font-semibold shadow-2xl shadow-foc-red/25 border-0 transform hover:scale-105 transition-all duration-300"
+                  <Button
+                    size="sm"
+                    className="group w-full md:w-[60%] bg-gradient-to-r from-foc-red to-foc-red-light hover:from-foc-red-dark hover:to-foc-red text-white px-8 py-6 md:py-7 text-sm font-semibold shadow-2xl shadow-foc-red/25 border-0 transform hover:scale-105 transition-all duration-300"
                   >
                     {slide.cta}
                     <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform duration-300" size={20} />
@@ -140,7 +129,7 @@ const HeroCarousel = () => {
                 </motion.div>
               </motion.div>
             </div>
-          </div>
+           </div>
         ))}
       </Slider>
     </section>

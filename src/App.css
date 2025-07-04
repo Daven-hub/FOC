@@ -1,4 +1,4 @@
-#root {
+/* #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
@@ -39,4 +39,30 @@
 
 .read-the-docs {
   color: #888;
+}
+ */
+
+ .icon-service{
+  position:relative
+ }
+ .icon-service:after, .icon-service:before {
+  content: "";
+  position: absolute;
+  width: 55px;
+  height: 50px;
+  background-color: white;
+}
+.icon-service:before {
+  top: 0;
+  right: -1px;
+  -webkit-clip-path: polygon(100% 0, 0 0, 100% 100%);
+  clip-path: polygon(100% 0, 0 0, 100% 100%);
+  z-index: 2;
+}
+.icon-service:after {
+  left: 0;
+  bottom: -1px;
+  -webkit-clip-path: polygon(0 0, 0 100%, 100% 100%);
+  clip-path: polygon(0 0, 0 100%, 100% 100%);
+  z-index: 1;
 }

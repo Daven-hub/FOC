@@ -8,13 +8,13 @@ import { Mail, Phone, MapPin, Clock, Send } from 'lucide-react';
 
 const Contact = () => {
   return (
-    <section id="contact" className="py-20 bg-gradient-to-br from-gray-50 to-white">
+    <section id="contact" className="py-16 md:py-20 bg-gradient-to-br from-gray-50 to-white">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
+        <div className="text-center mb-10">
+          <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-3">
             Contactez-<span className="text-foc-red">nous</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-sm md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
             Prêt à transformer vos ambitions en réalité ? Notre équipe d'experts 
             est là pour vous accompagner dans votre parcours vers le succès international.
           </p>
@@ -25,23 +25,23 @@ const Contact = () => {
           <div className="lg:col-span-2 relative">
             <Card className="h-full shadow-xl border-0 bg-white">
               <CardHeader className="bg-gradient-to-r from-foc-blue to-foc-blue-light text-white rounded-t-lg">
-                <CardTitle className="text-2xl font-bold">
+                <CardTitle className="text-xl md:text-2xl font-bold">
                   Nos Coordonnées
                 </CardTitle>
-                <p className="text-blue-100">
+                <p className="text-blue-100 text-sm md:text-lg">
                   Nous sommes là pour vous aider
                 </p>
               </CardHeader>
-              <CardContent className="space-y-8 p-8">
+              <CardContent className="space-y-8 p-5 md:p-8">
                 <div className="flex items-start space-x-4 group">
                   <div className="p-3 bg-foc-blue rounded-xl group-hover:bg-foc-blue-dark transition-colors">
                     <MapPin className="text-white" size={24} />
                   </div>
                   <div>
                     {/* <h4 className="font-semibold text-gray-800 text-lg mb-2">Adresse</h4> */}
-                    <p className="text-gray-600 leading-relaxed">
+                    <p className="text-gray-600 text-lg leading-relaxed">
                       400 - 257 rue Sherbrooke Est<br />
-                      Montréal, H2X 1E3<br />
+                      Montréal, H2X 1E3<br /> 
                       QC, Canada
                     </p>
                   </div>
@@ -63,7 +63,7 @@ const Contact = () => {
                   </div>
                   <div>
                     {/* <h4 className="font-semibold text-gray-800 text-lg mb-2">Email</h4> */}
-                    <p className="text-gray-600 text-lg font-medium">contact@foc-cof.ca</p>
+                    <p className="text-gray-600 text-lg font-medium">info@foc-cof.ca</p>
                   </div>
                 </div>
 
@@ -102,14 +102,14 @@ const Contact = () => {
           <div className="lg:col-span-3">
             <Card className="shadow-xl border-0 bg-white">
               <CardHeader className="bg-gradient-to-r from-foc-red to-foc-red-light text-white rounded-t-lg">
-                <CardTitle className="text-2xl font-bold">
+                <CardTitle className="text-xl md:text-2xl font-bold">
                   Envoyez-nous un message
                 </CardTitle>
-                <p className="text-red-100">
+                <p className="text-red-100 text-sm md:text-lg">
                   Nous vous répondrons dans les plus brefs délais
                 </p>
               </CardHeader>
-              <CardContent className="p-8">
+              <CardContent className="p-5 md:p-8">
                 <form className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-6">
                     <div className="space-y-2">
@@ -167,7 +167,7 @@ const Contact = () => {
                     />
                   </div>
 
-                  <div className="flex items-start space-x-3">
+                  {/* <div className="flex items-start space-x-3">
                     <input
                       type="checkbox"
                       id="privacy"
@@ -176,7 +176,7 @@ const Contact = () => {
                     <label htmlFor="privacy" className="text-sm text-gray-600">
                       J'accepte que mes données soient utilisées pour me recontacter concernant ma demande. *
                     </label>
-                  </div>
+                  </div> */}
 
                   <Button 
                     type="submit"

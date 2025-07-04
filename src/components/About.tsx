@@ -5,6 +5,7 @@ import { Award, Target, Heart, Zap, ArrowRight, Play, Users } from 'lucide-react
 import { Button } from './ui/button';
 import OptimizedImage from './OptimizedImage';
 import { NavLink } from 'react-router-dom';
+import Subtitle from './Subtitle';
 
 const About = () => {
   const values = [
@@ -43,7 +44,7 @@ const About = () => {
   ];
 
   return (
-    <section id="apropos" className="py-20 bg-white" style={{ paddingLeft: '6%', paddingRight: '6%' }}>
+    <section id="apropos" className="py-10 md:py-20 bg-white px-[6%]">
           <div className="grid lg:grid-cols-2 gap-14">
             <div className="relative">
               <div className="grid grid-cols-2 w-full h-full gap-4">
@@ -85,8 +86,9 @@ const About = () => {
 
             {/* Content */}
             <div>
-              <p className="text-sm uppercase tracking-wide text-foc-blue mb-4">À PROPOS DE NOUS</p>
-              <h2 className="text-4xl font-bold text-black/70 mb-6">
+              {/* <p className="text-sm uppercase tracking-wide text-foc-blue mb-4">À PROPOS DE NOUS</p> */}
+              <Subtitle titre={'À propos de nous'} color={"text-foc-blue"} />
+              <h2 className="text-4xl font-bold text-black/70 mb-6 mt-4">
                 Trouvez Votre <span className="text-foc-red">Emploi de Rêve</span><br />
                 Et Votre Chemin de Carrière
               </h2>
@@ -109,7 +111,7 @@ const About = () => {
                 ))}
               </div>
 
-              <NavLink to={"/about"} className="bg-foc-blue flex items-center w-fit hover:bg-blue-700 text-white px-6 py-3 rounded-full">
+              <NavLink to={"/about"} className="bg-foc-blue text-sm flex items-center w-full justify-center md:w-fit hover:bg-blue-700 text-white px-6 py-3 rounded-full">
                 En Savoir Plus <ArrowRight className="ml-2 h-4 w-4" />
               </NavLink>
             </div>

@@ -21,7 +21,7 @@ const Header = () => {
     { name: 'À propos', href: '/a-propos' },
     { name: 'Services', href: '#' },
     { name: 'Événements', href: '/evenements' },
-    { name: 'Recruitement', href: '/jobs' },
+    { name: 'Recrutement', href: '/jobs' },
     { name: 'Contact', href: '#' }
   ];
 
@@ -30,20 +30,20 @@ const Header = () => {
       className={`fixed px-[6%] top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
           ? 'bg-white/95 backdrop-blur-xl border-b border-gray-500' 
-          : 'bg-transparent'
+          : 'bg-transparent border-0'
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6 }}
     >
       <div className="">
-        <div className="flex items-center justify-between py-4">
+        <div className="flex items-center justify-between py-2.5 md:py-4">
           <motion.div 
             className="flex items-center space-x-3"
-            whileHover={{ scale: 1.05 }}
-            transition={{ type: "spring", stiffness: 400 }}
+            // whileHover={{ scale: 1.05 }}
+            // transition={{ type: "spring", stiffness: 400 }}
           >
-             <img className='h-12' src='/uploads/logo.png' alt='logo_ccca' />
+             <img className='h-10 md:h-12' src='/uploads/logo.png' alt='logo_foc' />
           </motion.div>
       
           <nav className="hidden lg:flex items-center space-x-8">
@@ -65,15 +65,21 @@ const Header = () => {
           </nav>
   
           <motion.div 
-            className="hidden lg:block"
+            className="hidden lg:flex items-center gap-2.5"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.8 }}
           >
             <Button 
-              className="bg-gradient-to-r from-foc-red to-foc-red-light hover:from-foc-red-dark hover:to-foc-red text-white px-6 py-2 rounded-full font-semibold shadow-lg shadow-foc-red/25 border-0 transform hover:scale-105 transition-all duration-300"
+              className="bg-gradient-to-r uppercase text-xs from-foc-red to-foc-red-light hover:from-foc-red-dark hover:to-foc-red text-white px-6 py-2 rounded-full font-semibold shadow-lg shadow-foc-red/25 border-0 transform hover:scale-105 transition-all duration-300"
             >
               Nous Joindre
+              <ArrowRight className="ml-2" size={16} />
+            </Button>
+            <Button 
+              className="bg-gradient-to-r uppercase text-xs from-foc-blue to-foc-blue-light hover:from-foc-blue-dark hover:to-foc-blue text-white px-6 py-2 rounded-full font-semibold shadow-lg shadow-foc-blue/25 border-0 transform hover:scale-105 transition-all duration-300"
+            >
+              connexion
               <ArrowRight className="ml-2" size={16} />
             </Button>
           </motion.div>

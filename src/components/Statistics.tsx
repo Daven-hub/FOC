@@ -29,15 +29,15 @@ const Statistics = () => {
     {
       icon: <TrendingUp className="w-8 h-8 text-gray-600" />,
       number: "69 712",
-      label: "NOMBRE TOTAL DE DEMANDES D'EMPLOI"
+      label: "NOMBRE DE DEMANDE D'EMPLOI"
     }
   ];
 
   return (
-    <section className="py-20 bg-gray-50">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
+    <section className="py-20 px-[6%]">
+      <div className="">
+        <div className="text-center mb-12">
+          <h2 className="text-2xl uppercase lg:text-[2.3rem] font-bold text-gray-700 mb-2">
             Les Journées l'emploi en <span className="text-foc-red">chiffres</span> depuis 2013
           </h2>
         </div>
@@ -46,12 +46,12 @@ const Statistics = () => {
           {stats.map((stat, index) => (
             <div 
               key={index} 
-              className={`relative bg-white rounded-lg p-8 text-center border-2 border-gray-200 hover:shadow-lg transition-all duration-300 ${
-                stat.highlight ? 'border-yellow-400' : ''
+              className={`relative bg-white rounded-lg p-6 text-center border-2 border-gray-200 hover:shadow-lg transition-all duration-300 ${
+                stat.highlight ? 'border-foc-red-dark' : ''
               }`}
             >
               {stat.highlight && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-8 h-8 bg-yellow-400 rounded-full"></div>
+                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-8 h-8 bg-foc-red-light rounded-full"></div>
               )}
               
               <div className="flex justify-center mb-4">
@@ -62,7 +62,7 @@ const Statistics = () => {
                 {stat.number}
               </div>
               
-              <div className="text-sm font-medium text-gray-600 uppercase tracking-wide">
+              <div className="text-xs font-medium text-gray-600 uppercase tracking-wide">
                 {stat.label}
               </div>
             </div>
