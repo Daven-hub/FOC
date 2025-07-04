@@ -18,13 +18,15 @@ export interface ScheduleItem {
 export interface Event {
   id: number;
   title: string;
-  date: EventDate;
-  description: string;
-  status: string;
-  type: string;
-  image: string;
   subtitle?: string;
+  description: string;
   longDescription?: string;
+  type: string;
+  status: string;
+  image: string;
+  img?: string;
+  start: string;
+  location?: string;
   category?: string;
   restrictions?: string;
   participants?: { employers: number; jobSeekers: number };
@@ -35,10 +37,8 @@ export interface Event {
   objectives?: string[];
   process?: string[];
   challenges?: string[];
-  img?: string;
-  start?: string;
 }
- 
+
 export interface RegistrationFormData {
   firstName: string;
   lastName: string;

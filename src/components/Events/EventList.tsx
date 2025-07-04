@@ -22,13 +22,13 @@ const EventList = ({
   return (
     <AnimatePresence>
       {events.length > 0 ? (
-        <div className="grid gap-8">
+        <div className="grid gap-6">
           {events.map((event, index) => (
             <motion.div
               key={event.id}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 + 0.4, type: 'spring', stiffness: 100 }}
+              transition={{ delay: index * 0.1, type: 'spring', stiffness: 100 }}
               exit={{ opacity: 0 }}
             >
               <EventCard
@@ -65,8 +65,11 @@ const EventList = ({
               Aucun événement trouvé
             </h3>
             <p className="text-gray-600 mb-6">
-              Essayez de modifier vos critères de recherche.
+              Essayez de modifier vos critères de recherche ou consultez notre calendrier complet.
             </p>
+            <Button variant="outline" className="border-blue-600 text-blue-600">
+              Voir tous les événements
+            </Button>
           </div>
         </motion.div>
       )}
