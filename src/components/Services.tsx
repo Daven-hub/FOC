@@ -15,7 +15,7 @@ const Services = () => {
     {
       icon: <Briefcase className="w-16 h-16 text-foc-red" />,
       title: "Placement Professionnel",
-      description: "Solutions de placement personnalisées pour répondre aux besoins spécifiques de votre entreprise"
+      description: "Solutions de placement personnalisées pour répondre à vos besoins spécifiques"
     },
     {
       icon: <Calendar className="w-16 h-16 text-foc-red" />,
@@ -24,7 +24,7 @@ const Services = () => {
     },
     {
       icon: <Building className="w-16 h-16 text-foc-red" />,
-      title: "Centre d'Affaires",
+      title: "Centre d'Affaires<br></br>",
       description: "Accompagnement complet pour le développement de votre activité à l'international"
     }
   ];
@@ -53,23 +53,23 @@ const Services = () => {
             </div>
           </div>
           <div className='hidden md:flex items-center gap-2.5'>
-            <div className='cursor-pointer group hover:bg-white transition-all duration-300 p-3 rounded-full border border-white/30'><ArrowLeft size={20} className='text-white transition-all duration-300 group-hover:text-black' /></div>
-            <div className='cursor-pointer group hover:bg-white transition-all duration-300 p-3 rounded-full border border-white/30'><ArrowRight size={20} className='text-white transition-all duration-300 group-hover:text-black' /></div>
+            <div className='cursor-pointer group hover:bg-white transition-all duration-300 p-3 rounded-full border border-white/40'><ArrowLeft size={20} className='text-white transition-all duration-300 group-hover:text-black' /></div>
+            <div className='cursor-pointer group hover:bg-white transition-all duration-300 p-3 rounded-full border border-white/40'><ArrowRight size={20} className='text-white transition-all duration-300 group-hover:text-black' /></div>
           </div>
         </div>
 
         {/* Grille des services */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((service, index) => (
-            <Card key={index} className="group rounded-[5px] border hover:shadow-md transition-all duration-300 bg-white text-center p-4">
+            <Card key={index} className="group rounded-[5px] border hover:shadow-md transition-all duration-300 bg-white text-center p-5 md:p-4">
               <CardHeader className="space-y-6">
-                <CardTitle className="text-xl text-start font-bold text-foc-blue">
-                  {service.title}
-                </CardTitle>
-                <div className="p-3 h-[120px] icon-service w-full bg-foc-red/10 flex justify-center items-center group-hover:bg-foc-red/20 transition-colors duration-300">
+                <CardTitle className="text-xl font-poppins text-start font-bold text-foc-blue" dangerouslySetInnerHTML={{__html:service.title}} />
+                  {/* {service.title} */}
+                {/* </CardTitle> */}
+                <div className="p-3 h-[140px] md:h-[120px] icon-service w-full bg-foc-red/10 flex justify-center items-center group-hover:bg-foc-red/20 transition-colors duration-300">
                   {service.icon}
                 </div>
-                <p className="text-gray-600 text-start leading-relaxed text-sm">
+                <p className="text-gray-600 text-start leading-relaxed text-[1rem] md:text-[.9rem]">
                   {service.description}
                 </p>
               </CardHeader>

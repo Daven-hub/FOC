@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Menu, X, ArrowRight } from 'lucide-react';
 
-const Header = ({position="fixed"}) => {
+const HeaderOther = ({position="fixed"}) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -27,7 +27,7 @@ const Header = ({position="fixed"}) => {
 
   return (
     <motion.header 
-      className={`${position}  ${position!=="fixed" && "bg-white/90 text-gray-700"} px-[6%] top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`${position} px-[6%] top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
           ? 'bg-white/95 backdrop-blur-xl border-b border-gray-300' 
           : 'bg-transparent border-0'
@@ -53,10 +53,7 @@ const Header = ({position="fixed"}) => {
                 href={item.href}
                 className={`relative text-[.9rem] font-medium transition-colors duration-300 hover:text-foc-red-light ${
                   isScrolled ? 'text-gray-700' : 'text-white'
-                }
-                   ${
-        !isScrolled && position!=="fixed" && 'text-gray-700' 
-      } group`}
+                } group`}
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}

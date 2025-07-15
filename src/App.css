@@ -48,8 +48,8 @@
  .icon-service:after, .icon-service:before {
   content: "";
   position: absolute;
-  width: 55px;
-  height: 50px;
+  width: 45px;
+  height: 40px;
   background-color: white;
 }
 .icon-service:before {
@@ -66,3 +66,27 @@
   clip-path: polygon(0 0, 0 100%, 100% 100%);
   z-index: 1;
 }
+
+.truncate-multiline {
+	display: -webkit-box;
+	-webkit-line-clamp: 4;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+  }
+  
+  .truncate-multi {
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+  }
+
+  .truncate-multil {
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+  }

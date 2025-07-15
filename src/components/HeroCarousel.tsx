@@ -3,7 +3,7 @@ import React from 'react';
 import Slider from 'react-slick';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Users, Briefcase, Calendar, Building, ChevronLeft, ChevronRight, ArrowRightToLine } from 'lucide-react';
+import { ArrowRight, Users, Briefcase, Calendar, Building, ChevronLeft, ChevronRight, ArrowRightToLine, FastForward } from 'lucide-react';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -56,11 +56,11 @@ const HeroCarousel = () => {
   const settings = {
     dots: false,
     infinite: true,
-    speed: 500,
+    speed: 700,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 7500,
+    autoplaySpeed: 10000,
     pauseOnHover: true,
     // prevArrow: <CustomArrow direction="prev" />,
     // nextArrow: <CustomArrow direction="next" />,
@@ -76,16 +76,16 @@ const HeroCarousel = () => {
         {slides.map((slide, index) => (
           <div key={index} className="relative flex flex-col justify-end items-center h-[500px] px-[6%] md:h-[calc(100vh+20px)]">
             <div className="absolute w-full h-full aspect-video inset-0">
-              <img 
+              <img
                 src={slide.imageUrl}
                 alt={slide.title}
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-foc-blue/100 via-foc-blue/65 md:via-foc-blue/85 to-black/40" />
+              <div className="absolute inset-0 bg-gradient-to-r from-foc-blue/100 via-foc-blue/65 md:via-foc-blue/85 to-black/100" />
               {/* <div className="absolute inset-0 bg-gradient-to-r from-foc-blue/100 via-foc-blue/50 to-foc-blue/60" /> */}
-              <div className="absolute inset-0 bg-black/50 md:bg-black/30" />
+              <div className="absolute inset-0 bg-black/50 md:bg-black/25" />
             </div>
-             {/* <div className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-black/50" /> */}
+            {/* <div className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-black/50" /> */}
             <div className="w-full h-[500px] md:h-[calc(100vh+20px)] flex flex-col justify-center md:w-[70%]">
               <motion.div
                 className="w-full space-y-4 pl-5 md:pl-10 py-6 md:py-10 relative border-l-[4px] border-foc-red"
@@ -97,15 +97,15 @@ const HeroCarousel = () => {
                 <div className='absolute bottom-0 left-0 w-[65%] h-[4px] bg-gradient-to-r from-foc-red/90 via-foc-red-light/35 to-foc-blue/20' />
                 <motion.span style={{ margin: 0 }}
                   className="text-[.8rem] flex items-center gap-2 text-white drop-shadow-2xl"
-                // initial={{ opacity: 0, y: 30 }}
-                // animate={{ opacity: 1, y: 0 }}
-                // transition={{ duration: 0.8, delay: 0.6 }}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.6 }}
                 >
-                  <ArrowRightToLine size={20}/> {slide.title}
+                  <FastForward size={18} /> {slide.title}
                 </motion.span>
 
                 <motion.h2
-                  className="text-[1.6rem] md:text-[4.2rem] font-poppins uppercase leading-[1.3] m-0 font-bold text-white drop-shadow-md"
+                  className="text-[1.5rem] md:text-[4.2rem] font-poppins uppercase leading-[1.3] font-bold text-white drop-shadow-md"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.8 }}
@@ -129,7 +129,7 @@ const HeroCarousel = () => {
                 </motion.div>
               </motion.div>
             </div>
-           </div>
+          </div>
         ))}
       </Slider>
     </section>

@@ -1,11 +1,11 @@
-import { LucideArrowRightToLine } from 'lucide-react'
+import { FastForward, LucideArrowRightToLine } from 'lucide-react'
 import React from 'react'
 
 function Subtitle({titre,color}) {
   return (
     <div className='subtitle'>
-        <h4 className={`flex text-[.9rem] font-bold items-center gap-1.5 ${color}`}> 
-          <LucideArrowRightToLine size={15} />
+        <h4 className={`flex text-[.9rem] font-medium items-center gap-1 ${color}`}> 
+          <FastForward className={color} size={15} />
           {titre}</h4>
     </div>
   )

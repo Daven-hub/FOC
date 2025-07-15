@@ -34,7 +34,7 @@ const Statistics = () => {
   ];
 
   return (
-    <section className="py-20 px-[6%]">
+    <section className="py-10 md:py-20 px-[6%]">
       <div className="">
         <div className="text-center mb-8">
           <h2 className="text-[1.3rem] leading-[1.3] uppercase lg:text-[1.9rem] font-bold text-gray-700">

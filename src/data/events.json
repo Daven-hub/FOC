@@ -1,0 +1,34 @@
+[
+    {
+        "image":"/event/jicac.jpeg",
+        "title":"Les Journées de L'Investissement Canadien Au Cameroun",
+        "sigle":"Les JICAC",
+        "date":"09 -13 Sept 2025",
+        "lieu":"Hotel Hilton , Yaoundé, Cameroun",
+        "descript":"Un évènement d'envergure organisé par la Chambre de Commerce Canada Afrique(CCCA) en parténariat avec l'agence de promotionn des investissements du cameroun (API), les Ministères (du Commerce,des affairres Étrangères, et de l'Économie"
+    },
+    {
+        "image":"/event/jicag.jpeg",
+        "title":"Les Journées de L'Investissement Canadien Au Cameroun",
+        "sigle":"Les JICAG",
+        "date":"16 - 20 Sept 2025",
+        "lieu":"Radisson Blu Okoume Palace Hotel Libreville, au Gabon",
+        "descript":"Dans un contexte géopolitique mondial marqué par des tensions croissantes et des restructurations économiques, le Canada adopte une nouvelle approche stratégique pour renforcer ses relations avec l'Afrique. Avec la publication récente de sa nouvelle Stratégie pour l’Afrique, le Canada réaffirme son enga gement envers le continent, mettant en avant des partenariats durables, des investissements responsables et une coopération renforcée dans des secteurs clés tels que l’énergie, l’innovation technologique, l’agro-industrie et les infrastructures. Cette stratégie s’inscrit dans un contexte où le Canada doit faire face à une concurrence accrue sur le continent africain, notamment de la part de la Chine, de la Russie, de la Turquie, de l’Union européenne et des États-Unis, qui intensifient leurs efforts pour renforcer leurs liens économiques et politiques avec l'Afrique. "
+    },
+    {
+        "image":"/event/impact.jpeg",
+        "title":"Impact Diaspora",
+        "sigle":"",
+        "date":"30 Oct - 01 Nov 2025",
+        "lieu":"Hotel Hilton , Yaoundé, Cameroun",
+        "descript":"Un évènement d'envergure organisé par la Chambre de Commerce Canada Afrique(CCCA) en parténariat avec l'agence de promotionn des investissements du cameroun (API), les Ministères (du Commerce,des affairres Étrangères, et de l'Économie"
+    },
+    {
+        "image":"/event/impact.jpeg",
+        "title":"Salon Internationnal du Café Africain",
+        "sigle":"SICAF",
+        "date":"07 - 09 Nov 2025",
+        "lieu":"Montréal",
+        "descript":"Le SICAF, est un concept exclusif de Franchise Opportunités Canada, (FOC) Inc , Nous sommes enchantés de vous accueillir au Salon International du Café Africain, un événement exceptionnel dédié à célébrer la passion et l'art du café. Ce salon se déroulera dans l’une des belles provinces du CANADA, reconnue pour sa riche culture francophone et son dynamisme économique. Le SICAF est une occasion unique de rassembler des professionnels, des producteurs, des torréfacteurs et des passionnés de café du monde entier. Ensemble, nous explorerons les tendances actuelles, partagerons des connaissances et créerons des opportunités de collaboration dans cette industrie en constante évolution."
+    }
+]

@@ -7,7 +7,7 @@ import OptimizedImage from './OptimizedImage';
 import { NavLink } from 'react-router-dom';
 import Subtitle from './Subtitle';
 
-const About = () => {
+const AboutComponent = () => {
   const values = [
     {
       icon: Target,
@@ -50,11 +50,11 @@ const About = () => {
 
   return (
     <section id="apropos" className="py-10 md:py-20 bg-white px-[6%]">
-          <div className="grid lg:grid-cols-2 gap-14">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-14">
             <div className="relative">
               <div className="grid grid-cols-2 w-full h-[350px] md:h-full gap-4">
                 <div className="h-full overflow-hidden rounded-2xl w-full relative">
-                  <div className="relative h-full overflow-hidden rounded-2xl mt-12">
+                  <div className="relative w-full h-full overflow-hidden rounded-2xl mt-0 md:mt-12">
                     <OptimizedImage
                       src="/uploads/contr.jpg"
                       alt="Team working"
@@ -72,9 +72,9 @@ const About = () => {
                   </div>
                 </div>
                 <div className="relative space-y-4">
-                  <div className="bg-foc-blue-light text-white py-8 px-8 rounded-2xl">
-                    <div className="text-3xl font-bold">10+</div>
-                    <div className="text-sm">Années d'Expérience</div>
+                  <div className="bg-foc-blue-light text-white px-4 py-5 md:p-8 rounded-2xl">
+                    <div className="text-xl md:text-3xl font-bold">10+</div>
+                    <div className="text-xs md:text-sm">Années d'expérience</div>
                   </div>
                   <div className="overflow-hidden rounded-2xl">
                     <OptimizedImage
@@ -93,11 +93,11 @@ const About = () => {
             <div>
               {/* <p className="text-sm uppercase tracking-wide text-foc-blue mb-4">À PROPOS DE NOUS</p> */}
               <Subtitle titre={'À propos de nous'} color={"text-foc-blue"} />
-              <h2 className="text-4xl font-bold text-black/70 mb-6 mt-4">
-                Trouvez Votre <span className="text-foc-red">Emploi de Rêve</span><br />
+              <h2 className="text-[1.7rem] font-poppins md:text-[2.25rem] 2xl:[3.5rem] font-bold text-gray-700 my-2.5 leading-[1.25]">
+                Trouvez Votre <span className="text-foc-red">Emploi de Rêve</span>&nbsp;
                 Et Votre Chemin de Carrière
               </h2>
-              <p className="text-gray-600 mb-8 leading-relaxed">
+              <p className="text-gray-600 mb-6 leading-relaxed">
                 Chez FOC, nous nous engageons à transformer les aspirations professionnelles en réalités concrètes. 
                 Notre expertise de plus de 30 ans nous permet d'offrir des solutions personnalisées pour chaque profil.
               </p>
@@ -109,14 +109,14 @@ const About = () => {
                       <feature.icon className="h-6 w-6 text-foc-blue" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-gray-900 mb-2">{feature.title}</h3>
+                      <h3 className="font-semibold text-gray-700 mb-2">{feature.title}</h3>
                       <p className="text-gray-600 text-sm">{feature.description}</p>
                     </div>
                   </div>
                 ))}
               </div>
 
-              <NavLink to={"/about"} className="bg-foc-blue text-sm flex items-center w-full justify-center md:w-fit hover:bg-blue-700 text-white px-6 py-3 rounded-full">
+              <NavLink to={"/a-propos"} className="bg-foc-blue text-sm flex items-center w-full justify-center md:w-fit hover:bg-blue-700 text-white px-6 py-3 rounded-full">
                 En Savoir Plus <ArrowRight className="ml-2 h-4 w-4" />
               </NavLink>
             </div>
@@ -125,4 +125,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default AboutComponent;
