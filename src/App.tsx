@@ -12,12 +12,12 @@ import Register from "./pages/Register";
 import Events from "./pages/Events";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
+import EventRegistrationPage from "./components/Events/EventRegistrationForm";
 
 const queryClient = new QueryClient();
 
 const AppContent = () => {
   const isLoading = usePageLoader();
-
   return (
     <>
       {isLoading && <Loader />}
@@ -26,8 +26,9 @@ const AppContent = () => {
         <Route path="/jobs" element={<JobSearch />} />
         <Route path="/register" element={<Register />} />
         <Route path="/evenements" element={<Events />} />
+        <Route path='/events/:id/register' element= {<EventRegistrationPage />}/>
         <Route path="/a-propos" element={<About />} />
-    
+
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>

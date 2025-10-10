@@ -1,7 +1,10 @@
 
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
-import { Award, Target, Heart, Zap } from 'lucide-react';
+import { Award, Target, Heart, Zap, ArrowRight, Play, Users } from 'lucide-react';
+import { Button } from './ui/button';
+import OptimizedImage from './OptimizedImage';
+import { NavLink } from 'react-router-dom';
 
 const About = () => {
   const values = [
@@ -26,68 +29,91 @@ const About = () => {
       description: "Chaque service est livré selon les plus hauts standards de qualité professionnelle."
     }
   ];
+  const features = [
+    {
+      icon: Target,
+      title: "Milliers d'Opportunités Disponibles",
+      description: "Accédez à une vaste base de données d'opportunités professionnelles dans le monde entier."
+    },
+    {
+      icon: Users,
+      title: "Le Bon Poste Pour Vos Compétences",
+      description: "Trouvez le poste parfait qui correspond à vos compétences et aspirations professionnelles."
+    }
+  ];
 
   return (
-    <section id="apropos" className="py-16 bg-white" style={{ paddingLeft: '6%', paddingRight: '6%' }}>
-      <div className="mx-auto px-4">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Contenu texte */}
-          <div>
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
-              À propos de <span className="text-foc-red">FOC</span>
-            </h2>
-            <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-              Franchise Opportunities Canada Inc. est votre partenaire de confiance pour naviguer 
-              dans le paysage complexe des opportunités internationales. Depuis notre création, 
-              nous avons bâti une réputation d'excellence en aidant les entreprises et les 
-              professionnels à réaliser leurs ambitions mondiales.
-            </p>
-            <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-              Notre équipe d'experts combine une connaissance approfondie des marchés internationaux 
-              avec une approche personnalisée pour chaque client. Nous croyons que chaque succès 
-              de nos clients est notre propre succès.
-            </p>
-
-            {/* Statistiques */}
-            <div className="grid grid-cols-2 gap-6">
-              <div className="text-center p-6 bg-gray-50 rounded-xl">
-                <div className="text-3xl font-bold text-foc-blue mb-2">15+</div>
-                <div className="text-gray-600">Années d'expérience</div>
-              </div>
-              <div className="text-center p-6 bg-gray-50 rounded-xl">
-                <div className="text-3xl font-bold text-foc-red mb-2">98%</div>
-                <div className="text-gray-600">Satisfaction client</div>
+    <section id="apropos" className="py-20 bg-white" style={{ paddingLeft: '6%', paddingRight: '6%' }}>
+          <div className="grid lg:grid-cols-2 gap-14">
+            <div className="relative">
+              <div className="grid grid-cols-2 w-full h-full gap-4">
+                <div className="h-full overflow-hidden rounded-2xl w-full relative">
+                  <div className="relative h-full overflow-hidden rounded-2xl mt-12">
+                    <OptimizedImage
+                      src="/uploads/banner.jpg"
+                      alt="Team working"
+                      className="absolute w-full h-full object-cover"
+                      width={1000}
+                      height={1000}
+                    />
+                    <div className="absolute inset-0 bg-blue-600/20"></div>
+                    <Button
+                      size="icon"
+                      className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white/90 text-blue-600 hover:bg-white rounded-full"
+                    >
+                      <Play className="h-5 w-5" />
+                    </Button>
+                  </div>
+                </div>
+                <div className="relative space-y-4">
+                  <div className="bg-foc-blue-light text-white py-8 px-8 rounded-2xl">
+                    <div className="text-3xl font-bold">10+</div>
+                    <div className="text-sm">Années d'Expérience</div>
+                  </div>
+                  <div className="overflow-hidden rounded-2xl">
+                    <OptimizedImage
+                      src="/uploads/banner.jpg"
+                      alt="Professional meeting"
+                      className="absolute w-full h-[calc(100%-136px)] overflow-hidden rounded-2xl object-cover"
+                      width={300}
+                      height={130}
+                    />
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
 
-          {/* Valeurs */}
-          <div>
-            <h3 className="text-2xl font-bold text-gray-800 mb-8 text-center">
-              Nos Valeurs Fondamentales
-            </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {values.map((value, index) => (
-                <Card key={index} className="group hover:shadow-lg transition-all duration-300 border-2 hover:border-foc-blue">
-                  <CardContent className="p-6 text-center">
-                    <div className="mb-4 flex justify-center">
-                      <div className="p-3 bg-gradient-to-r from-foc-blue to-foc-blue-light rounded-full">
-                        <value.icon className="text-white" size={24} />
-                      </div>
+            {/* Content */}
+            <div>
+              <p className="text-sm uppercase tracking-wide text-foc-blue mb-4">À PROPOS DE NOUS</p>
+              <h2 className="text-4xl font-bold text-black/70 mb-6">
+                Trouvez Votre <span className="text-foc-red">Emploi de Rêve</span><br />
+                Et Votre Chemin de Carrière
+              </h2>
+              <p className="text-gray-600 mb-8 leading-relaxed">
+                Chez FOC, nous nous engageons à transformer les aspirations professionnelles en réalités concrètes. 
+                Notre expertise de plus de 30 ans nous permet d'offrir des solutions personnalisées pour chaque profil.
+              </p>
+
+              <div className="space-y-6 mb-8">
+                {features.map((feature, index) => (
+                  <div key={index} className="flex items-start gap-4">
+                    <div className="bg-blue-100 p-3 rounded-full flex-shrink-0">
+                      <feature.icon className="h-6 w-6 text-foc-blue" />
                     </div>
-                    <h4 className="text-lg font-bold text-gray-800 mb-3">
-                      {value.title}
-                    </h4>
-                    <p className="text-gray-600 text-sm leading-relaxed">
-                      {value.description}
-                    </p>
-                  </CardContent>
-                </Card>
-              ))}
+                    <div>
+                      <h3 className="font-semibold text-gray-900 mb-2">{feature.title}</h3>
+                      <p className="text-gray-600 text-sm">{feature.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <NavLink to={"/about"} className="bg-foc-blue flex items-center w-fit hover:bg-blue-700 text-white px-6 py-3 rounded-full">
+                En Savoir Plus <ArrowRight className="ml-2 h-4 w-4" />
+              </NavLink>
             </div>
           </div>
-        </div>
-      </div>
     </section>
   );
 };

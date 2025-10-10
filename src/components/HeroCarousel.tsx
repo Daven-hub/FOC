@@ -3,7 +3,7 @@ import React from 'react';
 import Slider from 'react-slick';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Users, Briefcase, Calendar, Building, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowRight, Users, Briefcase, Calendar, Building, ChevronLeft, ChevronRight, ArrowRightToLine } from 'lucide-react';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -38,7 +38,7 @@ const HeroCarousel = () => {
     },
     {
       title: "Services Événementiels",
-      subtitle: "Événements de recrutement et networking",
+      subtitle: "Évènements de recrutement et networking",
       description: "Participez à nos événements exclusifs pour maximiser vos opportunités de recrutement.",
       icon: <Calendar className="w-16 h-16 text-foc-red" />,
       imageUrl: "/event.jpg",
@@ -55,7 +55,7 @@ const HeroCarousel = () => {
   ];
 
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
@@ -63,8 +63,8 @@ const HeroCarousel = () => {
     autoplay: true,
     autoplaySpeed: 5000,
     pauseOnHover: true,
-    prevArrow: <CustomArrow direction="prev" />,
-    nextArrow: <CustomArrow direction="next" />,
+    // prevArrow: <CustomArrow direction="prev" />,
+    // nextArrow: <CustomArrow direction="next" />,
     customPaging: () => (
       <div className="w-3 h-3 bg-white/50 rounded-full hover:bg-white transition-colors duration-300" />
     ),
@@ -77,35 +77,37 @@ const HeroCarousel = () => {
         {slides.map((slide, index) => (
           <div key={index} className="relative min-h-screen">
 
-            <div className="absolute inset-0">
+            <div className="absolute w-full aspect-video inset-0">
               <img
                 src={slide.imageUrl}
                 alt={slide.title}
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/60" />
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50" />
-              <div className="absolute inset-0 bg-foc-blue/20" />
+              <div className="absolute inset-0 bg-gradient-to-r from-foc-blue/100 via-foc-blue/50 to-foc-blue/60" />
+              {/* <div className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-black/50" /> */}
+              <div className="absolute inset-0 bg-black/50" />
             </div>
 
-            <div className="relative z-10 min-h-screen flex items-center" style={{ paddingLeft: '6%', paddingRight: '6%' }}>
+            <div className="relative z-10 md:h-[calc(100vh+81px)] md:w-[76%] flex items-center" style={{ paddingLeft: '6%', paddingRight: '6%' }}>
               <motion.div 
-                className="w-full max-w-4xl"
+                className="w-full space-y-5 pl-10 py-8 relative border-l-2 border-foc-red"
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
-                <motion.h1 
-                  className="text-4xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-6 text-white drop-shadow-2xl"
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.6 }}
+                <div className='absolute top-0 left-0 w-[30%] bg-foc-red h-[2px]' />
+                <div className='absolute bottom-0 left-0 w-[55%] bg-foc-red h-[2px]' />
+                <motion.span style ={{margin:0}}
+                  className="text-sm flex items-center gap-2 text-white drop-shadow-2xl"
+                  // initial={{ opacity: 0, y: 30 }}
+                  // animate={{ opacity: 1, y: 0 }}
+                  // transition={{ duration: 0.8, delay: 0.6 }}
                 >
-                  {slide.title}
-                </motion.h1>
+                 <ArrowRightToLine /> {slide.title}
+                </motion.span>
      
                 <motion.h2 
-                  className="text-2xl lg:text-3xl font-semibold text-foc-red mb-8 drop-shadow-lg"
+                  className="text-xl md:text-[6rem] leading-[1] m-0 font-semibold text-white drop-shadow-lg"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.8 }}
@@ -114,7 +116,7 @@ const HeroCarousel = () => {
                 </motion.h2>
     
                 <motion.p 
-                  className="text-xl text-white/95 leading-relaxed max-w-3xl mb-12 drop-shadow-lg"
+                  className="text-sm text-white/95 leading-relaxed drop-shadow-lg"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 1 }}
@@ -123,6 +125,7 @@ const HeroCarousel = () => {
                 </motion.p>
        
                 <motion.div
+                className='mt-5'
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 1.2 }}
